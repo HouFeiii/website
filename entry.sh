@@ -29,13 +29,17 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/server.cfg" ]; then
 	wget https://houyongfei:6ca9c88541e110946bf910451ceeabf1f69979e7@nanny.netease.com/houyongfei/csgo-community-server/raw/master/etc/unzip
 
 	wget https://ptah.zizt.ru/files/PTaH-V1.1.3-build19-linux.zip
-  "${HOMEDIR}"/unzip PTaH-V1.1.3-build19-linux.zip -d "${STEAMAPPDIR}/${STEAMAPP}"
+  unzip PTaH-V1.1.3-build19-linux.zip -d "${HOMEDIR}"
 
 
   wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/addons -C "${HOMEDIR}"
   wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/addons -C "${HOMEDIR}"
   wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/cfg -C "${HOMEDIR}"
   wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/cfg -C "${HOMEDIR}"
+
+  cd "${HOMEDIR}"
+  find addons -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
+  find addons -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
   cd "${HOMEDIR}"/gloves-1.0.3
   find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
@@ -53,7 +57,7 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/server.cfg" ]; then
 	  read -a admins <<< "$SOURCEMOD_ADMIN"
 	  for admin in ${admins}
 	  do
-	    echo \""${admin}"\" \"99:z\"\" >> "${STEAMAPPDIR}/${STEAMAPP}"/addons/sourcemod/configs/admins_simple.ini
+	    echo \""${admin}"\" \"99:z\" >> "${STEAMAPPDIR}/${STEAMAPP}"/addons/sourcemod/configs/admins_simple.ini
 	  done
 	fi
 fi
