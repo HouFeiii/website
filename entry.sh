@@ -33,9 +33,9 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/server.cfg" ]; then
 
 
   	wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/addons -C "${HOMEDIR}"
-  	wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/addons -C "${HOMEDIR}"
+  	wget -qO- https://github.com/kgns/weapons/archive/v1.3.2.tar.gz | tar xvzf - weapons-1.3.2/addons -C "${HOMEDIR}"
   	wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/cfg -C "${HOMEDIR}"
- 	wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/cfg -C "${HOMEDIR}"
+ 	wget -qO- https://github.com/kgns/weapons/archive/v1.3.2.tar.gz | tar xvzf - weapons-1.3.2/cfg -C "${HOMEDIR}"
 
   	cd "${HOMEDIR}"
   	find addons -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
@@ -45,7 +45,7 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/server.cfg" ]; then
   	#find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
   	#find . -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
-  	cd "${HOMEDIR}"/weapons-1.7.0
+  	cd "${HOMEDIR}"/weapons-1.3.2
   	find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
   	find . -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
