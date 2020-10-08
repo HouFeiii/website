@@ -32,20 +32,20 @@ if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/cfg/server.cfg" ]; then
   	unzip PTaH-V1.1.3-build19-linux.zip -d "${HOMEDIR}"
 
 
-  	wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/addons -C "${HOMEDIR}"
-  	wget -qO- https://github.com/kgns/weapons/archive/v1.3.2.tar.gz | tar xvzf - weapons-1.3.2/addons -C "${HOMEDIR}"
-  	wget -qO- https://github.com/kgns/gloves/archive/v1.0.3.tar.gz | tar xvzf - gloves-1.0.3/cfg -C "${HOMEDIR}"
- 	wget -qO- https://github.com/kgns/weapons/archive/v1.3.2.tar.gz | tar xvzf - weapons-1.3.2/cfg -C "${HOMEDIR}"
+  	wget -qO- https://github.com/kgns/gloves/archive/v1.0.4.tar.gz | tar xvzf - gloves-1.0.4/addons -C "${HOMEDIR}"
+  	wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/addons -C "${HOMEDIR}"
+  	wget -qO- https://github.com/kgns/gloves/archive/v1.0.4.tar.gz | tar xvzf - gloves-1.0.4/cfg -C "${HOMEDIR}"
+ 	wget -qO- https://github.com/kgns/weapons/archive/v1.7.0.tar.gz | tar xvzf - weapons-1.7.0/cfg -C "${HOMEDIR}"
 
   	cd "${HOMEDIR}"
   	find addons -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
   	find addons -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
-  	#cd "${HOMEDIR}"/gloves-1.0.3
-  	#find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
-  	#find . -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
+  	cd "${HOMEDIR}"/gloves-1.0.4
+  	find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
+  	find . -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
-  	cd "${HOMEDIR}"/weapons-1.3.2
+  	cd "${HOMEDIR}"/weapons-1.7.0
   	find . -type d | xargs -I source_dir mkdir "${STEAMAPPDIR}/${STEAMAPP}"/source_dir
   	find . -type f | xargs -I source_file cp source_file "${STEAMAPPDIR}/${STEAMAPP}"/source_file
 
